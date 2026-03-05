@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAN-ART Print</title>
+    <link rel="stylesheet" href="45. Latihan 14.css">
+    <link rel="stylesheet" href="Src/FontAwesome/css/all.css">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        :root {
+            --peach: #ffdab9;
+            --dark: #2f4f4f;
+            --cyan: #e0ffff;
+            --brown: #3e2723;
+            --green: #25d366;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        main {
+            margin: auto;
+            width: 80%;
+        }
+        main section {
+            scroll-margin-top: 70px; 
+        }
+
+        /* style navigasi */
+        .nav-kontener {
+            background-color: var(--cyan);
+            position: sticky;
+            top: 0px;
+            z-index: 1;
+        }
+        .nav-flex {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+            height: 60px;
+        }
+        .nav-flex label, #humberger {
+            display: none;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+        nav ul li a {
+            display: block;
+            color: var(--dark);
+            text-decoration: none;
+            padding: 0 16px;
+            text-transform: uppercase;
+            line-height: 60px;
+        }
+        nav ul li a:hover {
+            background-color: var(--peach);
+            transition: 0.3s;
+        }
+        .nav-brand {
+            display: flex;
+        }
+        .nav-brand h2 {
+            line-height: 60px;
+            margin: 0 7px;
+            color: var(--dark);
+        }
+        .logo2 {
+            display: none;
+        }
+
+        /* style hero image */
+        #hero-kontener {
+            background-image: url(Src/Gambar/image/hero_image.png);
+            height: 100vh;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            scroll-margin-top: 70px; 
+        } 
+        .text {
+            text-align: center;
+            color: var(--cyan);
+            font-size: 24px;
+        }
+        .button {
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+            background-color: var(--green);
+            padding: 10px;
+            border-radius: 10px;
+            color: var(--cyan);
+            font-size: 20px;
+            transition: 0.1s;
+        }
+        .button:hover {
+            background-color: var(--dark);
+        }
+
+        /* style about */
+        main h1 {
+            color: var(--dark);
+            text-align: center;
+            margin-top: 80px;
+        }
+        main .about-deskripsi {
+            text-align: center;
+            color: var(--dark);
+        }
+        .about-flex {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin: 30px auto;
+        }
+        .about-image, .about-text {
+            width: 50%;
+            margin: 14px;
+            text-align: justify;
+        }
+        .about-text p {
+            margin-top: 15px;
+        }
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            object-fit: cover;
+            transition: 0.6s;
+        }
+        .about-image img:hover {
+            /* transform: scale(1.05); */
+            box-shadow: 2px 2px 20px 10px var(--cyan);
+        }
+
+        /* style services */
+        main .services-deskripsi {
+            text-align: center;
+            color: var(--dark);
+        }
+        .services-flex {
+            display: flex;
+            width: 100%;
+            margin: 30px auto;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .services-items {
+            width: 23%;
+            text-align: center;
+            padding: 20px 10px;
+            background-color: var(--cyan);
+            border-radius: 15px;
+            margin-bottom: 15px;
+            transition: 0.5s;
+        }
+        .services-items:hover {
+            transform: translate(0, -10px);
+        }
+        .services-items p {
+            margin-top: 15px;
+        }
+        .services-items h3 {
+            margin-top: 10px;
+        }
+        .services-items .fas {
+            color: var(--peach);
+        }
+
+        /* style catalog */
+        main .catalog-deskripsi {
+            text-align: center;
+            color: var(--dark);
+        }
+        .catalog-flex {
+            display: flex;
+            width: 100%;
+            margin: 30px auto;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .catalog-items {
+            width: 25%;
+            text-align: center;
+            color: var(--dark);
+            padding: 20px 10px;
+        }
+        .catalog-items h3 {
+            margin-top: 10px ;
+        }
+        .catalog-items p {
+            font-size: 14px;
+            margin: 15px 0 25px ;
+        }
+        .catalog-items img {
+            width: 100%;
+            border-radius: 10px;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+        .catalog-items img:hover {
+            transform: scale(1.05);
+        }
+        .price-chat-kontener {
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-radius: 5px;
+            box-shadow: 0 0 5px ;
+        }
+        .price span {
+            font-weight: bold;
+        }
+        .chat-button button {
+            padding: 2px;
+            background-color: var(--green);
+            border: 1px solid var(--green);
+            color: var(--cyan);
+            border-radius: 5px;
+            font-size: 12px;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .chat-button button:hover {
+            background-color: white;
+            color: var(--green);
+        }
+
+        /* style portfolio */
+        main .portfolio-deskripsi {
+            text-align: center;
+            color: var(--dark);
+        }
+        .portfolio-flex {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            margin: 30px auto;
+        }
+        .portfolio-items {
+            width: 25%;
+            padding: 10px;
+        }
+        .portfolio-items img {
+            width: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: 0.5s;
+        }
+        .portfolio-items img:hover {
+            transform: scale(1.05);
+            opacity: 0.7;
+        }
+
+        /* style contact */
+        main .contact-deskripsi {
+            text-align: center;
+            color: var(--dark); 
+        }
+        .contact-flex {
+            display: flex;
+            justify-content: space-between;
+            margin: 30px auto;
+            width: 100%;
+        }
+        .map {
+            width: 60%;
+        }
+        .map h3 {
+            text-align: center;
+            color: var(--dark);
+        }
+        .map iframe {
+            border-radius: 10px;
+        }
+        .social-media {
+            width: 40%;
+            padding: 10px;
+        }
+        .social-media h3 {
+            text-align: center;
+            color: var(--dark);
+        }
+        .social-media a {
+            display: flex;
+            width: 100%;
+            text-align: center;
+            margin-top: 10px;
+            text-decoration: none;
+            color: var(--cyan);
+            padding: 10px;
+            border-radius: 10px;
+            justify-content: center;
+            align-items: center;
+        }
+        .social-media a:hover {
+            opacity: 0.8;
+        }
+        .ig {
+            background-color: #e4405f;
+        }
+        .fb {
+            background-color: #3b5998;
+        }
+        .x {
+            background-color: #1da1f2;
+        }
+        .link {
+            background-color: #0077b5;
+        }
+
+        /* style footer */
+        .footer-kontener {
+            margin-top: 60px;
+            color: var(--dark);
+            background-color: var(--cyan);
+            padding: 30px 5px;
+        }
+        .footer-kontener a {
+            text-decoration: none;
+            color: var(--dark);
+        }
+        .footer-kontener a:hover {
+            text-decoration: underline;
+        }
+        .footer-flex {
+            width: 100%;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+        }
+        .footer-flex section {
+            width: 25%;
+            text-align: center;
+            padding: 10px;
+        }
+        .footer-flex ul {
+            list-style: none;
+        }
+        .footer-flex h3 {
+            margin-bottom: 15px;
+        }
+        .footer-copyright {
+            width: 100%;
+            display: flex;
+            margin-top: 50px;
+            flex-flow: row wrap;
+            justify-content: space-evenly;
+            padding: 10px;
+        }
+
+
+
+        /* versi tablet */
+        @media screen and (max-width:768px) {
+            .logo2 {
+                display: block;
+            }
+            .logo1 {
+                display: none;
+            }
+            /* menampilkan icon hamberger */
+            .nav-flex label {
+                display: inline-block;
+                color: var(--dark);
+                font-style: normal;
+                font-size: 32px;
+                padding: 8px;
+            }
+            /* menyususn menu menjadi vertikal */
+            nav ul {
+                flex-direction: column;
+                width: 100%;
+                background-color: var(--cyan);
+                position: absolute;
+                top: 60px;
+                left: 0;
+                border-top: 1px solid var(--dark);
+            }
+            nav ul li a {
+                display: block;
+                padding: 0 30px;
+                height: auto;
+            }
+            /* pindahkan brand kekanan, dan perkecil */
+            .nav-brand h2 {
+                position: absolute;
+                right: 20px;
+            }
+            /* menampilkan/menyembunyikan menu */
+            nav {
+                display: none;
+            }
+            .nav-flex input:checked ~ nav {
+                display: flex;
+            }
+
+            /* about */
+            .about-flex {
+                flex-direction: column;
+            }
+            .about-image, .about-text {
+                width: auto;
+            }
+
+            /* services */
+            .services-items {
+                width: 48%;
+            }
+
+            /* catalog */
+            .catalog-items {
+                width: 50%;
+            }
+
+            /* portfolio */
+            .portfolio-items {
+                width: 30%;
+            }
+
+            /* contact */
+            .contact-flex {
+                flex-direction: column;
+            }
+            .map, .social-media {
+                width: 100%;
+            }
+
+            /* footer */
+            .footer-flex section {
+                width: 50%;
+            }
+        }
+
+        /* versi smartphone */
+        @media screen and (max-width:481px) {
+            /* services */
+            .services-items {
+                width: 100%;
+            }
+
+            /* catalog */
+            .catalog-items {
+                width: 190%;
+            }
+
+            /* portfolio */
+            .portfolio-items {
+                width: 50%;
+            }
+
+            /* footer */
+            .footer-flex section {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVIGASI -->
+    <div class="nav-kontener">
+        <div class="nav-flex">
+            <label for="humberger">&#9776;</label>
+            <input type="checkbox" id="humberger">
+
+            <div class="nav-brand">
+                <h2 class="logo1"><i class="fas fa-print"></i>FAN-ART Print</h2>
+                <h2 class="logo2">FAN-ART Print<i class="fas fa-print"></i></h2>
+            </div>
+
+            <nav>
+                <ul>
+                    <li><a href="#hero-kontener">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Service</a></li>
+                    <li><a href="#catalog">Katalog</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <!-- HERO IMAGE -->
+    <div id="hero-kontener">
+        <div class="text">
+            <h1>INVITATION ART PRINTING</h1>
+            <p>Cetak Undangan Pernikahan Yang Elegan</p>
+            <a href="https://wa.me/+6282310755435?text=Halo, Saya ingin tahu lebih mengenai percetakan ini" target="_blank" class="button"><i class="fas fa-phone"></i> | Hubungi Kami</a>
+        </div>
+    </div>
+
+    <!-- BADAN/ISI -->
+    <main>
+        <!-- ABOUT -->
+        <section id="about">
+            <h1>About</h1>
+            <p class="about-deskripsi">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, repudiandae.</p>
+
+            <div class="about-flex">
+                <div class="about-image">
+                    <img src="Src/Gambar/image/about_1.png" alt="">
+                </div>
+                <div class="about-text">
+                    <h2>Lorem ipsum dolor sit amet.</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum illo dolorum pariatur velit. Magnam pariatur hic id reiciendis recusandae, suscipit ut placeat illo dolores voluptate ducimus maiores asperiores temporibus accusamus.</p>
+                    <p>Lorem ipsum dolor sit amet.</p>
+                </div>
+            </div>
+            <div class="about-flex">
+                <div class="about-text">
+                    <h2>Lorem ipsum dolor sit amet.</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum illo dolorum pariatur velit. Magnam pariatur hic id reiciendis recusandae, suscipit ut placeat illo dolores voluptate ducimus maiores asperiores temporibus accusamus.</p>
+                    <p>Lorem ipsum dolor sit amet.</p>
+                </div>
+                <div class="about-image">
+                    <img src="Src/Gambar/image/about_2.png" alt="">
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES -->
+        <section id="services">
+            <h1>Our Feature</h1>
+            <p class="services-deskripsi">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, hic.</p>
+
+            <div class="services-flex">
+                <div class="services-items">
+                    <i class="fas fa-star fa-5x"></i>
+                    <h3>QUALITY</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, quos.</p>
+                </div>
+                <div class="services-items">
+                    <i class="fas fa-pen-nib fa-5x"></i>
+                    <h3>DESAIN</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, quos.</p>
+                </div>
+                <div class="services-items">
+                    <i class="fas fa-lightbulb fa-5x"></i>
+                    <h3>CREATIVITY</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, quos.</p>
+                </div>
+                <div class="services-items">
+                    <i class="fas fa-inbox fa-5x"></i>
+                    <h3>COMMUNICATION</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, quos.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- KATALOG -->
+        <section id="catalog">
+            <h1>Catalog</h1>
+            <p class="catalog-deskripsi">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis sed ex esse at? Deleniti, nostrum?</p>
+
+            <div class="catalog-flex">
+                <div class="catalog-items">
+                    <img src="Src/Gambar/image/catalog_1.jpeg" alt="">
+                    <h3>Catalog 1</h3>
+                    <p>Deskripsi singkat katalog, kualitas terbik dengan harga terjangkau </p>
+                    <div class="price-chat-kontener">
+                        <div class="price">
+                            <span>Rp. 5.000/Pcs</span>
+                        </div>
+                        <div class="chat-button">
+                            <a href="https://wa.me/+6282310755435?text=Halo, Saya tertarik dengan produk ini" target="_blank">
+                                <button>Chat via Whatsapp</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="catalog-items">
+                    <img src="Src/Gambar/image/catalog_2.jpeg" alt="">
+                    <h3>Catalog 2</h3>
+                    <p>Deskripsi singkat katalog, kualitas terbik dengan harga terjangkau </p>
+                    <div class="price-chat-kontener">
+                        <div class="price">
+                            <span>Rp. 5.000/Pcs</span>
+                        </div>
+                        <div class="chat-button">
+                            <a href="https://wa.me/+6282310755435?text=Halo, Saya tertarik dengan produk ini" target="_blank">
+                                <button>Chat via Whatsapp</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="catalog-items">
+                    <img src="Src/Gambar/image/catalog_3.jpeg" alt="">
+                    <h3>Catalog 3</h3>
+                    <p>Deskripsi singkat katalog, kualitas terbik dengan harga terjangkau </p>
+                    <div class="price-chat-kontener">
+                        <div class="price">
+                            <span>Rp. 5.000/Pcs</span>
+                        </div>
+                        <div class="chat-button">
+                            <a href="https://wa.me/+6282310755435?text=Halo, Saya tertarik dengan produk ini" target="_blank">
+                                <button>Chat via Whatsapp</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="catalog-items">
+                    <img src="Src/Gambar/image/catalog_4.jpeg" alt="">
+                    <h3>Catalog 4</h3>
+                    <p>Deskripsi singkat katalog, kualitas terbik dengan harga terjangkau </p>
+                    <div class="price-chat-kontener">
+                        <div class="price">
+                            <span>Rp. 5.000/Pcs</span>
+                        </div>
+                        <div class="chat-button">
+                            <a href="https://wa.me/+6282310755435?text=Halo, Saya tertarik dengan produk ini" target="_blank">
+                                <button>Chat via Whatsapp</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="catalog-items">
+                    <img src="Src/Gambar/image/catalog_5.jpeg" alt="">
+                    <h3>Catalog 5</h3>
+                    <p>Deskripsi singkat katalog, kualitas terbik dengan harga terjangkau </p>
+                    <div class="price-chat-kontener">
+                        <div class="price">
+                            <span>Rp. 5.000/Pcs</span>
+                        </div>
+                        <div class="chat-button">
+                            <a href="https://wa.me/+6282310755435?text=Halo, Saya tertarik dengan produk ini" target="_blank">
+                                <button>Chat via Whatsapp</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="catalog-items">
+                    <img src="Src/Gambar/image/catalog_6.jpeg" alt="">
+                    <h3>Catalog 6</h3>
+                    <p>Deskripsi singkat katalog, kualitas terbik dengan harga terjangkau </p>
+                    <div class="price-chat-kontener">
+                        <div class="price">
+                            <span>Rp. 5.000/Pcs</span>
+                        </div>
+                        <div class="chat-button">
+                            <a href="https://wa.me/+6282310755435?text=Halo, Saya tertarik dengan produk ini" target="_blank">
+                                <button>Chat via Whatsapp</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="catalog-items">
+                    <img src="Src/Gambar/image/catalog_7.jpeg" alt="">
+                    <h3>Catalog 7</h3>
+                    <p>Deskripsi singkat katalog, kualitas terbik dengan harga terjangkau </p>
+                    <div class="price-chat-kontener">
+                        <div class="price">
+                            <span>Rp. 5.000/Pcs</span>
+                        </div>
+                        <div class="chat-button">
+                            <a href="https://wa.me/+6282310755435?text=Halo, Saya tertarik dengan produk ini" target="_blank">
+                                <button>Chat via Whatsapp</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="catalog-items">
+                    <img src="Src/Gambar/image/catalog_8.jpeg" alt="">
+                    <h3>Catalog 8</h3>
+                    <p>Deskripsi singkat katalog, kualitas terbik dengan harga terjangkau </p>
+                    <div class="price-chat-kontener">
+                        <div class="price">
+                            <span>Rp. 5.000/Pcs</span>
+                        </div>
+                        <div class="chat-button">
+                            <a href="https://wa.me/+6282310755435?text=Halo, Saya tertarik dengan produk ini" target="_blank">
+                                <button>Chat via Whatsapp</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PORTFOLIO -->
+        <section id="portfolio">
+            <h1>Portfolio</h1>
+            <p class="portfolio-deskripsi">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, eos?</p>
+
+            <div class="portfolio-flex">
+                <div class="portfolio-items">
+                    <img src="Src/Gambar/image/portfolio_1.jpeg" alt="">
+                </div>
+                <div class="portfolio-items">
+                    <img src="Src/Gambar/image/portfolio_2.jpeg" alt="">
+                </div>
+                <div class="portfolio-items">
+                    <img src="Src/Gambar/image/portfolio_3.jpeg" alt="">
+                </div>
+                <div class="portfolio-items">
+                    <img src="Src/Gambar/image/portfolio_4.jpeg" alt="">
+                </div>
+                <div class="portfolio-items">
+                    <img src="Src/Gambar/image/portfolio_5.jpeg" alt="">
+                </div>
+                <div class="portfolio-items">
+                    <img src="Src/Gambar/image/portfolio_6.jpeg" alt="">
+                </div>
+                <div class="portfolio-items">
+                    <img src="Src/Gambar/image/portfolio_7.jpeg" alt="">
+                </div>
+                <div class="portfolio-items">
+                    <img src="Src/Gambar/image/portfolio_8.jpeg" alt="">
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact">
+            <h1>Contact Us</h1>
+            <p class="contact-deskripsi">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, quibusdam?</p>
+
+            <div class="contact-flex">
+                <div class="map">
+                    <h3>Lokasi Kami</h3>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31709.24505142053!2d106.77208675097123!3d-6.565077594765734!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c3f64624ba3f%3A0x1c00c5eb51c82470!2sTanah%20Sareal%2C%20Kota%20Bogor%2C%20Jawa%20Barat%2016164!5e0!3m2!1sid!2sid!4v1772667623437!5m2!1sid!2sid" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="social-media">
+                    <h3>Ikuti Kami</h3>
+                    <a href="https://www.instagram.com/" target="_blank" class="ig"><i class="fab fa-instagram fa-2x"></i>Instagram</a>
+                    <a href="https://www.facebook.com/" target="_blank" class= "fb"><i class="fab fa-facebook fa-2x"></i>Facebook</a>
+                    <a href="https://www.linkedin.com/" target="_blank" class="link"><i class="fab fa-linkedin fa-2x"></i>Linkedin</a>
+                    <a href="https://www.twitter.com/" target="_blank" class="x"><i class="fab fa-twitter fa-2x"></i>Twitter</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <div class="footer-kontener">
+        <div class="footer-flex">
+            <section>
+                <h3>FAN-Art Print</h3>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam, at?</p>
+            </section>
+            <section>
+                <h3>Community</h3>
+                <ul>
+                    <li><a href="#">Activity</a></li>
+                    <li><a href="#">Members</a></li>
+                    <li><a href="#">Group</a></li>
+                    <li><a href="#">Forums</a></li>
+                </ul>
+            </section>
+            <section>
+                <h3>Our Services</h3>
+                <ul>
+                    <li><a href="#">Our Mission</a></li>
+                    <li><a href="#">Help/Contact Us</a></li>
+                    <li><a href="#">Privacy & Policy</a></li>
+                    <li><a href="#">Terms & Condition</a></li>
+                </ul>
+            </section>
+            <section>
+                <h3>Hubungi Kami</h3>
+                <div>artprint@gmail.com</div>
+                <div>082310755435</div>
+                <div>www.fan-art-printing.com</div>
+            </section>
+        </div>
+
+        <div class="footer-copyright">
+            <div>
+                <small>&copy; FAN-ART PRINT 2026</small>
+            </div>
+            <div>
+                <a href="#"><i class="fab fa-facebook fa-lg"></i></a>
+                <a href="#"><i class="fab fa-linkedin fa-lg"></i></a>
+                <a href="#"><i class="fab fa-instagram fa-lg"></i></a>
+                <a href="#"><i class="fab fa-twitter fa-lg"></i></a>
+                <a href="#"><i class="fab fa-google-plus fa-lg"></i></a>
+                <a href="#"><i class="fab fa-github fa-lg"></i></a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

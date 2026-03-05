@@ -1,0 +1,460 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+:root {
+    --peach: #ffdab9;
+    --dark: #2f4f4f;
+    --cyan: #e0ffff;
+    --brown: #3e2723;
+    --green: #25d366;
+}
+html {
+    scroll-behavior: smooth;
+}
+main {
+    margin: auto;
+    width: 80%;
+}
+main section {
+    scroll-margin-top: 70px; 
+}
+
+/* style navigasi */
+.nav-kontener {
+    background-color: var(--cyan);
+    position: sticky;
+    top: 0px;
+    z-index: 1;
+}
+.nav-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    height: 60px;
+}
+.nav-flex label, #humberger {
+    display: none;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+}
+nav ul li a {
+    display: block;
+    color: var(--dark);
+    text-decoration: none;
+    padding: 0 16px;
+    text-transform: uppercase;
+    line-height: 60px;
+}
+nav ul li a:hover {
+    background-color: var(--peach);
+    transition: 0.3s;
+}
+.nav-brand {
+    display: flex;
+}
+.nav-brand h2 {
+    line-height: 60px;
+    margin: 0 7px;
+    color: var(--dark);
+}
+.logo2 {
+    display: none;
+}
+
+/* style hero image */
+#hero-kontener {
+    background-image: url(Src/Gambar/image/hero_image.png);
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    scroll-margin-top: 70px; 
+} 
+.text {
+    text-align: center;
+    color: var(--cyan);
+    font-size: 24px;
+}
+.button {
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+    background-color: var(--green);
+    padding: 10px;
+    border-radius: 10px;
+    color: var(--cyan);
+    font-size: 20px;
+    transition: 0.1s;
+}
+.button:hover {
+    background-color: var(--dark);
+}
+
+/* style about */
+main h1 {
+    color: var(--dark);
+    text-align: center;
+    margin-top: 80px;
+}
+main .about-deskripsi {
+    text-align: center;
+    color: var(--dark);
+}
+.about-flex {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 30px auto;
+}
+.about-image, .about-text {
+    width: 50%;
+    margin: 14px;
+    text-align: justify;
+}
+.about-text p {
+    margin-top: 15px;
+}
+.about-image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    transition: 0.6s;
+}
+.about-image img:hover {
+    /* transform: scale(1.05); */
+    box-shadow: 2px 2px 20px 10px var(--cyan);
+}
+
+/* style services */
+main .services-deskripsi {
+    text-align: center;
+    color: var(--dark);
+}
+.services-flex {
+    display: flex;
+    width: 100%;
+    margin: 30px auto;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.services-items {
+    width: 23%;
+    text-align: center;
+    padding: 20px 10px;
+    background-color: var(--cyan);
+    border-radius: 15px;
+    margin-bottom: 15px;
+    transition: 0.5s;
+}
+.services-items:hover {
+    transform: translate(0, -10px);
+}
+.services-items p {
+    margin-top: 15px;
+}
+.services-items h3 {
+    margin-top: 10px;
+}
+.services-items .fas {
+    color: var(--peach);
+}
+
+/* style catalog */
+main .catalog-deskripsi {
+    text-align: center;
+    color: var(--dark);
+}
+.catalog-flex {
+    display: flex;
+    width: 100%;
+    margin: 30px auto;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.catalog-items {
+    width: 25%;
+    text-align: center;
+    color: var(--dark);
+    padding: 20px 10px;
+}
+.catalog-items h3 {
+    margin-top: 10px ;
+}
+.catalog-items p {
+    font-size: 14px;
+    margin: 15px 0 25px ;
+}
+.catalog-items img {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    transition: 0.5s;
+}
+.catalog-items img:hover {
+    transform: scale(1.05);
+}
+.price-chat-kontener {
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 5px;
+    box-shadow: 0 0 5px ;
+}
+.price span {
+    font-weight: bold;
+}
+.chat-button button {
+    padding: 2px;
+    background-color: var(--green);
+    border: 1px solid var(--green);
+    color: var(--cyan);
+    border-radius: 5px;
+    font-size: 12px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.chat-button button:hover {
+    background-color: white;
+    color: var(--green);
+}
+
+/* style portfolio */
+main .portfolio-deskripsi {
+    text-align: center;
+    color: var(--dark);
+}
+.portfolio-flex {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 30px auto;
+}
+.portfolio-items {
+    width: 25%;
+    padding: 10px;
+}
+.portfolio-items img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+.portfolio-items img:hover {
+    transform: scale(1.05);
+    opacity: 0.7;
+}
+
+/* style contact */
+main .contact-deskripsi {
+    text-align: center;
+    color: var(--dark); 
+}
+.contact-flex {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px auto;
+    width: 100%;
+}
+.map {
+    width: 60%;
+}
+.map h3 {
+    text-align: center;
+    color: var(--dark);
+}
+.map iframe {
+    border-radius: 10px;
+}
+.social-media {
+    width: 40%;
+    padding: 10px;
+}
+.social-media h3 {
+    text-align: center;
+    color: var(--dark);
+}
+.social-media a {
+    display: flex;
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+    text-decoration: none;
+    color: var(--cyan);
+    padding: 10px;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+}
+.social-media a:hover {
+    opacity: 0.8;
+}
+.ig {
+    background-color: #e4405f;
+}
+.fb {
+    background-color: #3b5998;
+}
+.x {
+    background-color: #1da1f2;
+}
+.link {
+    background-color: #0077b5;
+}
+
+/* style footer */
+.footer-kontener {
+    margin-top: 60px;
+    color: var(--dark);
+    background-color: var(--cyan);
+    padding: 30px 5px;
+}
+.footer-kontener a {
+    text-decoration: none;
+    color: var(--dark);
+}
+.footer-kontener a:hover {
+    text-decoration: underline;
+}
+.footer-flex {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+.footer-flex section {
+    width: 25%;
+    text-align: center;
+    padding: 10px;
+}
+.footer-flex ul {
+    list-style: none;
+}
+.footer-flex h3 {
+    margin-bottom: 15px;
+}
+.footer-copyright {
+    width: 100%;
+    display: flex;
+    margin-top: 50px;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    padding: 10px;
+}
+
+
+
+/* versi tablet */
+@media screen and (max-width:768px) {
+    .logo2 {
+        display: block;
+    }
+    .logo1 {
+        display: none;
+    }
+    /* menampilkan icon hamberger */
+    .nav-flex label {
+        display: inline-block;
+        color: var(--dark);
+        font-style: normal;
+        font-size: 32px;
+        padding: 8px;
+    }
+    /* menyususn menu menjadi vertikal */
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+        background-color: var(--cyan);
+        position: absolute;
+        top: 60px;
+        left: 0;
+        border-top: 1px solid var(--dark);
+    }
+    nav ul li a {
+        display: block;
+        padding: 0 30px;
+        height: auto;
+    }
+    /* pindahkan brand kekanan, dan perkecil */
+    .nav-brand h2 {
+        position: absolute;
+        right: 20px;
+    }
+    /* menampilkan/menyembunyikan menu */
+    nav {
+        display: none;
+    }
+    .nav-flex input:checked ~ nav {
+        display: flex;
+    }
+
+    /* about */
+    .about-flex {
+        flex-direction: column;
+    }
+    .about-image, .about-text {
+        width: auto;
+    }
+
+    /* services */
+    .services-items {
+        width: 48%;
+    }
+
+    /* catalog */
+    .catalog-items {
+        width: 50%;
+    }
+
+    /* portfolio */
+    .portfolio-items {
+        width: 30%;
+    }
+
+    /* contact */
+    .contact-flex {
+        flex-direction: column;
+    }
+    .map, .social-media {
+        width: 100%;
+    }
+
+    /* footer */
+    .footer-flex section {
+        width: 50%;
+    }
+}
+
+/* versi smartphone */
+@media screen and (max-width:481px) {
+    /* services */
+    .services-items {
+        width: 100%;
+    }
+
+    /* catalog */
+    .catalog-items {
+        width: 190%;
+    }
+
+    /* portfolio */
+    .portfolio-items {
+        width: 50%;
+    }
+
+    /* footer */
+    .footer-flex section {
+        width: 100%;
+    }
+}
